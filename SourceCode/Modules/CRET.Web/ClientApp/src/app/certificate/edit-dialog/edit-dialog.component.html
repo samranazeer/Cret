@@ -1,0 +1,266 @@
+<h2 mat-dialog-title style="text-align: left" >Info</h2>
+<mat-dialog-content class="mat-typography">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="col">Incident Number</th>
+        <td scope="col">{{ model.incidentNo }}</td>
+      </tr>
+      <tr>
+        <th scope="col">Organization</th>
+        <td scope="col">{{ model.organizationName }}</td>
+      </tr>
+
+      <tr>
+        <th scope="col">Level</th>
+        <td scope="col">{{ model.certificateName }}</td>
+      </tr>
+
+      <tr>
+        <th scope="col">Info</th>
+        <td scope="col">{{ model.info }}</td>
+      </tr>
+      <tr *ngIf=" model.certificateStatus == statusEnum.CertificateCreated">
+        <th scope="col">Created On</th>
+        <td scope="col">{{ model.activationDate | date:'medium' }}</td>
+      </tr>
+      <tr *ngIf=" model.certificateStatus == statusEnum.CertificateCreated">
+        <th scope="col">Valid Until</th>
+        <td scope="col">{{ model.expirationDate | date:'medium' }}</td>
+      </tr>
+      <tr *ngIf=" model.certificateStatus == statusEnum.CSR_Received &&
+          model.importCSRError !== null">
+        <th scope="col">Error</th>
+        <td scope="col">{{ model.importCSRError }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <form #certificateForm="ngForm">
+    <!-- <div>
+      <label class="col-form-label">Incident Number</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          disabled
+          name="numberOfCertificate"
+          [(ngModel)]="model.incidentNo"
+          #incidentNo="ngModel"
+        />
+        <mat-icon matSuffix>
+          <button
+            class="table-btn"
+            (click)="copyToClipboard('incidentNoCopied', model.incidentNo)"
+          >
+            <span class="icon-copy"></span>
+          </button>
+        </mat-icon>
+        <mat-hint align="end" *ngIf="incidentNoCopied">Copied</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Select Organization</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          disabled
+          name="organizationName"
+          [(ngModel)]="model.organizationName"
+          #organizationName="ngModel"
+        />
+        <mat-icon matSuffix>
+          <button
+            class="table-btn"
+            (click)="
+              copyToClipboard('organizationCopied', model.organizationName)
+            "
+          >
+            <span class="icon-copy"></span>
+          </button>
+        </mat-icon>
+        <mat-hint align="end" *ngIf="organizationCopied">Copied</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Select Level</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          disabled
+          name="certificateName"
+          [(ngModel)]="model.certificateName"
+          #certificateName="ngModel"
+        />
+        <mat-icon matSuffix>
+          <button class="table-btn" (click)="copyTypeToClipboard(model.level)">
+            <span class="icon-copy"></span>
+          </button>
+        </mat-icon>
+        <mat-hint align="end" *ngIf="levelCopied">Copied</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Info</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          disabled
+          type="text"
+          name="info"
+          placeholder="Enter info"
+          [(ngModel)]="model.info"
+          #info="ngModel"
+        />
+        <mat-icon matSuffix>
+          <button
+            class="table-btn"
+            (click)="copyToClipboard('infoCopied', model.info)"
+          >
+            <span class="icon-copy"></span>
+          </button>
+        </mat-icon>
+        <mat-hint align="end" *ngIf="infoCopied">Copied</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div
+      *ngIf="
+        model.certificateStatus == statusEnum.CSR_Received &&
+        model.importCSRError !== null
+      "
+    >
+      <label class="col-form-label">Error</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <textarea
+          matInput
+          disabled
+          type="text"
+          name="error"
+          placeholder="Enter info"
+          [(ngModel)]="model.importCSRError"
+          #error="ngModel"
+          style="min-height: 70px; resize: none"
+        >
+        </textarea>
+        <mat-icon matSuffix>
+          <button
+            class="table-btn"
+            (click)="copyToClipboard('csrErrorCopied', model.importCSRError)"
+          >
+            <span class="icon-copy"></span>
+          </button>
+        </mat-icon>
+        <mat-hint align="end" *ngIf="csrErrorCopied">Copied</mat-hint>
+      </mat-form-field>
+    </div> -->
+
+    <!-- <div *ngIf="model.certificateStatus == statusEnum.CSR_Received">
+      <button
+        class="table-btn copy-content-text"
+        (click)="copyToClipboard('csrCopied', model.csrContent)"
+      >
+        Copy Csr Content
+        <span class="icon-copy"></span>
+      </button>
+      <mat-hint align="end" *ngIf="csrCopied">Copied</mat-hint>
+    </div>
+    <div *ngIf="false">
+      <button
+        class="table-btn copy-content-text"
+        (click)="copyToClipboard('certificateCopied', model.certificateContent)"
+      >
+        Copy Certificate Content
+        <span class="icon-copy"></span>
+      </button>
+      <mat-hint align="end" *ngIf="certificateCopied">Copied</mat-hint>
+    </div> -->
+
+    <div *ngIf="model.certificateStatus == statusEnum.CertificateCreated">
+      <button
+        class="table-btn copy-content-text"
+        (click)="downloadCertificate()"
+      >
+        <span class="icon-download"></span>
+        Download Certificate
+      </button>
+    </div>
+
+    <div class="flex-container" *ngIf="isDownloadButtonEnabled()">
+      <qrcode
+        #parent
+        [qrdata]="qrCodeData"
+        [elementType]="'img'"
+        [errorCorrectionLevel]="'M'"
+        [colorDark]="'#000000'"
+        [colorLight]="'#ffffff'"
+        [width]="200"
+      >
+      </qrcode>
+      <div class="qrCodeDownloadText">
+        <h4 (click)="downloadQRCode(parentHidden)">Download QR Code</h4>
+      </div>
+    </div>
+
+    <span class="hidden-element">
+      <qrcode
+        #parentHidden
+        [qrdata]="qrCodeData"
+        [elementType]="'img'"
+        [errorCorrectionLevel]="'M'"
+        [colorDark]="'#000000'"
+        [colorLight]="'#ffffff'"
+        [width]="800"
+      >
+      </qrcode>
+    </span>
+
+    <div *ngIf="isDownloadButtonEnabled()">
+      <label class="col-form-label">Send QR Code</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          name="emailToSendQrCode"
+          placeholder="abc@gmail.com"
+          [(ngModel)]="emailToSendQrCode"
+          #customerName="ngModel"
+          
+        />
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="pb-3">
+  <button
+    class="btn add-btn add-action-btn"
+    (click)="signCertificate()"
+    *ngIf="
+      model.certificateStatus == statusEnum.CSR_Received &&
+      model.importCSRError !== null
+    "
+  >
+    Sign CSR
+  </button>
+
+  <button
+    class="btn add-btn add-action-btn"
+    *ngIf="isDownloadButtonEnabled()"
+    (click)="sendQrCode()"
+  >
+    Send
+  </button>
+
+  <button
+    class="btn cancel-btn cancel-action-button"
+    [mat-dialog-close]="false"
+  >
+    Cancel
+  </button>
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+</mat-dialog-actions>

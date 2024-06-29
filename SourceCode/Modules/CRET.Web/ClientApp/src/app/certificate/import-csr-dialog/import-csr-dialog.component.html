@@ -1,0 +1,23 @@
+
+    <h2 mat-dialog-title style="text-align: right">
+      <button class="table-btn" [mat-dialog-close]="false">
+        <span class="icon-cross"></span>
+      </button>
+    </h2>
+    <div class="dialog-holder">
+      <div class="dialog-content-holder">
+        <mat-dialog-content class="mat-typography">
+          <input #fileInput type="file" (change)="handleFileInput($event)" style="display: none" accept=".csr" />
+          <p class="centered">Select file to upload</p>
+          <div *ngIf="selectedFile" class="selected-file-info">
+            Selected File: {{ selectedFile.name }}
+          </div>
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="start">
+          <button class="btn cancel-btn" (click)="selectFile()">Select</button>
+          <button class="btn cancel-btn" (click)="uploadFile()">Upload file</button>
+          <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+        </mat-dialog-actions>
+      </div>
+    </div>

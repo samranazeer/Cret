@@ -1,0 +1,48 @@
+  .example-full-width {
+    width: 100%;
+  }
+  .custom-snackbar .mat-snack-bar-action {
+    color: #007bff; /* Change action button text color */
+  }
+
+  .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #7AB800;
+}
+
+/* styles.scss */
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  color: #7AB800; 
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #7AB800;  
+}
+
+/* Override the focused indicator color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: #7AB800;  
+}
+
+/* Override the focused placeholder color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-placeholder {
+  color: #7AB800;  
+}
+
+/* Override the focused underline color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-underline {
+  background-color: #7AB800; 
+}
+::ng-deep .example-tooltip-uppercase {
+  background: #D0D5DD;
+  color: red  !important;
+  font-size: 18px;
+}
+
+/* ::ng-deep .mat-icon {
+  font-size: 150%;
+  line-height: 1.125;
+  color: #7AB800;
+} */
+
+

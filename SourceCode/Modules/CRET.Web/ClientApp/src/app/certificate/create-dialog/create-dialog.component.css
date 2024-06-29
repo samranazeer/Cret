@@ -1,0 +1,10 @@
+  .example-full-width {
+    width: 100%;
+  }
+  .custom-snackbar .mat-snack-bar-action {
+    color: #007bff; /* Change action button text color */
+  }
+
+  .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #7AB800;
+}

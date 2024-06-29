@@ -1,0 +1,129 @@
+<!--container header -->
+<div class="content-header">
+  <div class="heading">
+    <h1>Certificates Validity Time List</h1>
+    <span>Set default validity for certificates in days</span>
+  </div>
+</div>
+
+<!-- Setting form area -->
+<div class="setting-form">
+  <fieldset>
+    <form>
+      <div class="form-box">
+
+        <div *ngIf="false" class="mb-4 row m-0 align-items-center">
+          <label for="number" class="col-1 col-form-label">Production</label>
+          <div class="col-sm-4">
+            <div>
+              <label class="col-sm-4 sub-label">Validity (Days)</label>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-select  name="production" #production="ngModel" [(ngModel)]="model.productionValidity">
+                  <mat-option [value]="90">90</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4 row m-0 align-items-center">
+          <label for="number" class="col-sm-1 col-form-label">Laboratory</label>
+          <div class="col-sm-4">
+            <div>
+              <label class="col-sm-4 sub-label">Validity (Days)</label>
+              <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-select  name="labValidity" #labValidity="ngModel" [(ngModel)]="model.labValidity">
+                    <mat-option [value]="90">90</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mb-4 row m-0 align-items-center">
+          <label for="number" class="col-sm-1 col-form-label">Batch</label>
+          <div class="col-sm-4">
+            <div>
+              <label class="col-sm-4 sub-label">Validity (Days)</label>
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-select  name="batchValidity" #batchValidity="ngModel" [(ngModel)]="model.batchValidity">
+                <mat-option [value]="90">90</mat-option>
+              </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4 row m-0 align-items-center">
+          <label for="number" class="col-sm-1 col-form-label">Service</label>
+          <div class="col-sm-4">
+            <div>
+              <label class="col-sm-4 sub-label">Validity (Days)</label>
+              <mat-form-field class="example-full-width" appearance="outline">
+                       <mat-select  name="serviceValidity" #serviceValidity="ngModel" [(ngModel)]="model.serviceValidity">
+                        <mat-option [value]="90">90</mat-option>
+                        <mat-option [value]="730">730</mat-option>
+                      </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mb-4 row m-0 align-items-center">
+          <label for="number" class="col-sm-1 col-form-label">Pulse</label>
+          <div class="col-sm-4">
+            <div>
+              <label class="col-sm-4 sub-label">Validity (Days)</label>
+              <mat-form-field class="example-full-width" appearance="outline">
+                       <mat-select  name="pulseValidity" #pulseValidity="ngModel" [(ngModel)]="model.pulseValidity">
+                        <mat-option [value]="90">90</mat-option>
+                      </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4 row m-0 align-items-center">
+          <label for="number" class="col-sm-1 col-form-label">Installer</label>
+          <div class="col-sm-4">
+            <div>
+              <label class="col-sm-4 sub-label">Validity (Days)</label>
+              <mat-form-field class="example-full-width" appearance="outline">
+                       <mat-select  name="insValidity" #insValidity="ngModel" [(ngModel)]="model.insValidity">
+                        <mat-option [value]="90">90</mat-option>
+                      </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4 row m-0 align-items-center">
+          <label for="number" class="col-sm-1 col-form-label">Consumer</label>
+          <div class="col-sm-4">
+            <div>
+              <label class="col-sm-4 sub-label">Validity (Days)</label>
+              <mat-form-field class="example-full-width" appearance="outline">
+                       <mat-select  name="consumerValidity" #consumerValidity="ngModel" [(ngModel)]="model.consumerValidity">
+                        <mat-option [value]="90">90</mat-option>
+                        <mat-option [value]="730">730</mat-option>
+                        <mat-option [value]="1825">1825</mat-option>
+                      </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4 row m-0 align-items-end mt-5">
+          <label for="number" class="col-sm-1 col-form-label"></label>
+          <div class="col-sm-4 d-flex">
+            <button class="btn add-btn" (click)="saveASetting()">Save</button>
+            <button class="btn download-btn">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </fieldset>
+</div>

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Delete Organization</h2>
+
+<mat-dialog-content class="mat-typography">
+  <p>
+    Are you sure you want to delete this Organization? This action cannot be
+    undone.
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="start">
+  <button class="btn cancel-btn" mat-dialog-close>Cancel</button>
+  <button  class="btn add-btn"  (click)="deleteConfirm(data.Id)">Delete</button>
+</mat-dialog-actions>

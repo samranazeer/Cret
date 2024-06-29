@@ -1,0 +1,9 @@
+<body>
+  <app-loader></app-loader>
+  <ng-container *ngIf="isLoginSucceed">
+    <app-nav-menu></app-nav-menu>
+  </ng-container>
+  <div class="container-holder">
+    <router-outlet></router-outlet>
+  </div>
+</body>

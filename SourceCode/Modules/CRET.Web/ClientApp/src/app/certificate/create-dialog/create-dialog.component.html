@@ -1,0 +1,92 @@
+<h2 mat-dialog-title style="text-align: left">Add CSR Token</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form #certificateForm="ngForm">
+    <div>
+      <label class="col-form-label">Number of Certificates</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          name="numberOfCertificate"
+          required
+          pattern="[1-9][0-9]*"
+          [(ngModel)]="model.numberOfCertificate"
+          #numberOfCertificate="ngModel"
+        />
+        <mat-error *ngIf="numberOfCertificate.errors?.required"
+          >Number is required</mat-error
+        >
+        <mat-error *ngIf="numberOfCertificate.errors?.pattern"
+        >Number must be greater than zero</mat-error
+      >
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Select Organization</label>
+      <mat-form-field appearance="outline" class="example-full-width">
+        <!-- <mat-label>Select Organization</mat-label> -->
+        <mat-select
+          name="organizartionId"
+          required
+          [(ngModel)]="model.organizartionId"
+          #organizartionId="ngModel"
+        >
+          <mat-option *ngFor="let item of organizationList" [value]="item.id">{{
+            item.organizationName
+          }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="organizartionId.invalid"
+          >Organizartion is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div>
+      <label class="col-form-label">Select Level</label>
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-select
+          name="level"
+          required
+          [(ngModel)]="model.level"
+          #level="ngModel"
+        >
+          <mat-option *ngFor="let key of enumKeys" [value]="key.key">
+            {{ key.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="level.invalid">Level is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Info</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input matInput
+               type="text"
+               name="info"
+               placeholder="Enter info"
+               [(ngModel)]="model.info"
+               #info="ngModel" />
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="pb-3">
+  <button
+    class="btn add-btn add-action-btn"
+    type="button"
+    [disabled]="certificateForm.form.invalid"
+    (click)="addCertificate()"
+  >
+    Save
+  </button>
+
+  <button
+    class="btn cancel-btn cancel-action-button"
+    [mat-dialog-close]="false"
+  >
+    Cancel
+  </button>
+</mat-dialog-actions>

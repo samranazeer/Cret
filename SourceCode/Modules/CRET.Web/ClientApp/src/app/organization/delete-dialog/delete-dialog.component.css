@@ -1,0 +1,9 @@
+mat-dialog-actions {
+    display: flex;
+    justify-content: space-between; /* Distribute space equally between buttons */
+  }
+
+  .btn {
+    flex: 1; /* Distribute available space equally among buttons */
+    margin: 0 5px; /* Adjust margin between buttons if needed */
+  }

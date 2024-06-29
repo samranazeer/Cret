@@ -1,0 +1,128 @@
+<h2 mat-dialog-title style="text-align: left">Edit Organization</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form #organizationForm="ngForm">
+    <div>
+      <label class="col-form-label">Customer Number</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          name="customerNumber"
+          placeholder="Enter customer number"
+          pattern="[0-9]{5,8}"
+          required
+          [(ngModel)]="model.customerNumber"
+          #customerNumber="ngModel"
+        />
+        <mat-error *ngIf="customerNumber.errors?.required"
+          >Customer number is required</mat-error
+        >
+        <mat-error *ngIf="customerNumber.errors?.pattern"
+          >Invalid customer number</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Customer Name</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          name="customerName"
+          placeholder="Enter customer name"
+          required
+          [(ngModel)]="model.customerName"
+          #customerName="ngModel"
+        />
+        <mat-error *ngIf="customerName.invalid"
+          >Customer name is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div>
+      <div>
+        <label class="col-form-label">Organization Name</label>
+        <mat-icon style="vertical-align:middle;margin-left: 5px;" 
+        matTooltipClass="example-tooltip-uppercase"
+        matTooltip='The Organization Name entered here must exactly match the description in the production system (Bauplan Merkmalswert "NFC Eigentümer 1" and "NFC Eigentümer 2") please check the production system first if you are unsure.' >info</mat-icon>
+      </div>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          name="organizationName"
+          placeholder="Enter organization name"
+          autocomplete="off"
+          required
+          [(ngModel)]="model.organizationName"
+          #organizationName="ngModel"
+          disabled
+        />
+        <mat-error *ngIf="organizationName.invalid"
+          >Organization name is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Email</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          required
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+          [(ngModel)]="model.email"
+          #email="ngModel"
+        />
+        <mat-error *ngIf="email.errors?.required">Email is required </mat-error>
+        <mat-error *ngIf="email.errors?.pattern">Invalid Email</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label class="col-form-label">Contact</label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input
+          matInput
+          type="text"
+          name="contact"
+          placeholder="+49 11 1234 5678"
+          pattern="^\+?\d+$"
+          [(ngModel)]="model.contact"
+          #contact="ngModel"
+          required
+        />
+        <mat-error *ngIf="contact.errors?.required"
+          >Contact number is required</mat-error
+        >
+        <mat-error *ngIf="contact.errors?.pattern"
+          >Inalid contact number.</mat-error
+        >
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="pb-3">
+  <button
+    class="btn add-btn add-action-btn"
+    type="button"
+    [disabled]="organizationForm.form.invalid"
+    (click)="editOrganization()"
+  >
+    Save
+  </button>
+
+  <button
+    class="btn cancel-btn cancel-action-button"
+    [mat-dialog-close]="false"
+  >
+    Cancel
+  </button>
+</mat-dialog-actions>

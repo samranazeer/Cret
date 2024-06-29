@@ -1,0 +1,32 @@
+  .example-full-width {
+    width: 100%;
+  }
+  .flex-container {
+    display: flex;
+  }
+  .qrCodeDownloadText{
+    align-self: center;
+  }
+
+  h4 {
+    color: #7AB800;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.copy-content-text {
+  color: #7AB800;
+}
+
+.table-btn{
+  margin: 0px;
+}
+::ng-deep .mat-dialog-actions {
+  justify-content: end;
+}
+
+.errorText {
+  color: red;
+    margin-left: 7px;
+    margin-top: 5px;
+}

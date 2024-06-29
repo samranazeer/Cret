@@ -1,0 +1,49 @@
+.col-form-label {
+  font-size: 20px;
+  line-height: 22px;
+  color: #000;
+  margin-top: 25px;
+}
+
+.sub-label {
+  font-size: 16px;
+  line-height: 20px;
+  color: #505050;
+}
+
+.form-control {
+  padding: 0.675rem .75rem;
+}
+
+
+.example-full-width {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin-bottom: -50px;
+  padding-bottom: 20px;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  color: #7AB800; 
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #7AB800;  
+}
+
+/* Override the focused indicator color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: #7AB800;  
+}
+
+/* Override the focused placeholder color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-placeholder {
+  color: #7AB800;  
+}
+
+/* Override the focused underline color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-underline {
+  background-color: #7AB800; 
+}

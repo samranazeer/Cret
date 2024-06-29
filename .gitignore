@@ -184,7 +184,6 @@ publish/
 *.azurePubxml
 # Note: Comment the next line if you want to checkin your web deploy settings,
 # but database connection strings (with potential passwords) will be unencrypted
-*.pubxml
 *.publishproj
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
@@ -361,3 +360,15 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Meter Data Decoder/Can.resx
+/SourceCode/Modules/CRET.Web/ClientApp/.angular/cache
+/SourceCode/Modules/CRET.Web/ClientApp/package-lock.json
+/SourceCode/Modules/CRET.Web/Properties/PublishProfiles/FolderProfile.pubxml
+/SourceCode/Solutions/.sonarqube/conf
+/SourceCode/Modules/CRET.Web/CretDatabase.db-shm
+/SourceCode/Modules/CRET.Web/CretDatabase.db-wal
+/SourceCode/Modules/CRET.Web/CretDatabase.db
+/SourceCode/Modules/CRET.Web/CretDatabase.db-shm
+/SourceCode/Modules/CRET.Web/CretDatabase.db-wal
+/SourceCode/Modules/CRET.Web/CretDatabase.db
+/Tools/docker/localbuild/lngcrettool/publish.zip

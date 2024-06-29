@@ -1,0 +1,18 @@
+version: '1.0'
+services:
+    cretcontainerhttps:
+        image: "cret:latest"
+        build: ./lngcrettool
+        environment:
+        - Environment_Variable=QA
+        - ASPNETCORE_ENVIRONMENT=Staging
+        - ASPNETCORE_URLS=https://+:443;http://+:80
+        - ASPNETCORE_Kestrel__Certificates__Default__Password=ABC123ssi
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/shared/ssl/ssidecisions.pfx
+        ports:
+        - "7071:80"
+        - "5000:443"
+        restart: unless-stopped
+        volumes:
+        - /home/mmanzoor/https:/shared/ssl
+        - /home/mmanzoor/shared/database:/shared/database

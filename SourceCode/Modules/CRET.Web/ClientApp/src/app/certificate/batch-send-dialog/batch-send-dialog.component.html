@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>Batch Send Confirmation</h2>
+
+<mat-dialog-content class="mat-typography">
+  <div>
+    <form #certificateForm="ngForm">
+      <div>
+        <label *ngIf="certificateStatus == StatusEnum.CertificateCreated">
+          Sending {{ count }} Certificate to: <b> </b>
+          </label>
+      <label *ngIf="certificateStatus != StatusEnum.CertificateCreated">
+      Sending {{ count }} CSR's to: <b> </b>
+      </label>
+        <mat-form-field  appearance="outline" style="width: 60%;margin-left: 20px;" >
+          <input
+            matInput
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+            [(ngModel)]="newOrganizationEmail"
+            #email="ngModel"
+          />
+          <mat-error *ngIf="email.errors?.required">Email is required</mat-error>
+          <mat-error *ngIf="email.errors?.pattern">Invalid Email</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+    <p>Do you want to continue?</p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="pb-3">
+  <!-- <div>
+    <h6 (click)="showChangeEmail()">Change email</h6>
+  </div> -->
+
+  <button
+    class="btn add-btn add-action-btn"
+    (click)="sendBatchRequest()"
+    [disabled]="certificateForm.form.invalid"
+  >
+    Yes
+  </button>
+
+  <button
+    class="btn cancel-btn cancel-action-button"
+    [mat-dialog-close]="false"
+  >
+    No
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,25 @@
+
+.centered {
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 400;
+  text-align: center;
+  color: #636466;
+  margin-bottom: 50px;
+}
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: space-between; /* Distribute space equally between buttons */
+  }
+
+  .btn {
+    flex: 1; /* Distribute available space equally among buttons */
+    margin: 0 5px; /* Adjust margin between buttons if needed */
+  }
+    .btn.cancel-btn {
+      width: 150px;
+      color: #636466;
+      background: #fff;
+    }

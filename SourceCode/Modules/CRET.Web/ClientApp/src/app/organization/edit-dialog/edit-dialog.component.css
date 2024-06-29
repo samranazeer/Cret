@@ -1,0 +1,30 @@
+  .example-full-width {
+    width: 100%;
+  }
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+    color: #7AB800; 
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #7AB800;  
+  }
+  
+  /* Override the focused indicator color */
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+    color: #7AB800;  
+  }
+  
+  /* Override the focused placeholder color */
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-placeholder {
+    color: #7AB800;  
+  }
+  
+  /* Override the focused underline color */
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-underline {
+    background-color: #7AB800; 
+  }
+  ::ng-deep .example-tooltip-uppercase {
+    background: #D0D5DD;
+    color: red  !important;
+    font-size: 18px;
+  }
