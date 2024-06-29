@@ -96,6 +96,8 @@ namespace Cret.Server
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+
             //Custom Authoriation Middleware
             app.UseAuthorizationMiddleware();
 
